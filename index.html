@@ -29,7 +29,35 @@
     <div class="todo-container">
         <ul class="todo-list"></ul>
     </div>
+    <button onclick="setData()">setData</button><br /><br />
+    <button onclick="getData()">getData</button><br /><br />
+    <button onclick="removeItem()">removeData</button><br /><br />
     <script src="script.js"></script>
+     <script>
+        // getItem, setItem, removeItem
+
+        let local =localStorage;
+
+        setData = () => {
+            let data = {
+                "firstname": "Tuvshinbayar",
+                "lastname": "Tuvshoo",
+                "age": 16
+            };
+
+            local.setItem('pass', JSON.stringify(data) );
+        }
+        getData = () =>{
+        let data = local.getItem('user-info');
+        data = JSON.parse(data);
+        console.log(data);
+        console.log(typeof(data));
+        }
+
+        removeItem = () => {
+            local.removeItem('user-info');
+        }
+     </script>
 </body>
 
 </html>
